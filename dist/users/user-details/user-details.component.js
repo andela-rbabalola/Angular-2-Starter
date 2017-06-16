@@ -10,21 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var user_1 = require("../shared/models/user");
-var UserProfileComponent = (function () {
-    function UserProfileComponent() {
+var user_service_1 = require("../../shared/user.service");
+var UserDetailsComponent = (function () {
+    function UserDetailsComponent(userService) {
+        this.userService = userService;
     }
-    return UserProfileComponent;
+    UserDetailsComponent.prototype.ngOnInit = function () {
+        this.user = this.userService.getUser(1);
+    };
+    return UserDetailsComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", user_1.User)
-], UserProfileComponent.prototype, "user", void 0);
-UserProfileComponent = __decorate([
+UserDetailsComponent = __decorate([
     core_1.Component({
-        selector: 'user-profile',
-        template: "\n    <div class=\"jumbotron\" *ngIf=\"user\">\n      <h2> {{user.name}} <small> {{ user.username }} </small></h2>\n      <input class=\"form-control\" [(ngModel)]=\"user.name\">\n    </div>\n    <router-outlet></router-outlet>\n  "
-    })
-], UserProfileComponent);
-exports.UserProfileComponent = UserProfileComponent;
-//# sourceMappingURL=user-profile.component.js.map
+        selector: 'user-details',
+        templateUrl: '/app/users/user-details/user-details.component.html'
+    }),
+    __metadata("design:paramtypes", [user_service_1.UserService])
+], UserDetailsComponent);
+exports.UserDetailsComponent = UserDetailsComponent;
+//# sourceMappingURL=user-details.component.js.map

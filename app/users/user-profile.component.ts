@@ -8,6 +8,7 @@ import { User } from '../shared/models/user';
       <h2> {{user.name}} <small> {{ user.username }} </small></h2>
       <input class="form-control" [(ngModel)]="user.name">
     </div>
+    <router-outlet></router-outlet>
   `
 })
 

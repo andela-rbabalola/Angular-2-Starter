@@ -9,9 +9,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
+var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var user_profile_component_1 = require("./users/user-profile.component");
 var user_form_component_1 = require("./users/user-form.component");
+var user_details_component_1 = require("./users/user-details/user-details.component");
+var routes_1 = require("./routes");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -21,12 +24,14 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
-            forms_1.FormsModule
+            forms_1.FormsModule,
+            router_1.RouterModule.forRoot(routes_1.appRoutes)
         ],
         declarations: [
             app_component_1.AppComponent,
             user_profile_component_1.UserProfileComponent,
-            user_form_component_1.UserFormComponent
+            user_form_component_1.UserFormComponent,
+            user_details_component_1.UserDetailsComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     })
