@@ -10,21 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var user_1 = require("../shared/models/user");
-var UserProfileComponent = (function () {
-    function UserProfileComponent() {
+var UserThumbnailComponent = (function () {
+    function UserThumbnailComponent() {
     }
-    return UserProfileComponent;
+    return UserThumbnailComponent;
 }());
 __decorate([
     core_1.Input(),
-    __metadata("design:type", user_1.User)
-], UserProfileComponent.prototype, "user", void 0);
-UserProfileComponent = __decorate([
+    __metadata("design:type", Object)
+], UserThumbnailComponent.prototype, "user", void 0);
+UserThumbnailComponent = __decorate([
     core_1.Component({
-        selector: 'user-profile',
-        template: "\n    <div class=\"jumbotron\" *ngIf=\"user\">\n      <h2> {{user.name}} <small> {{ user.username }} </small></h2>\n      <input class=\"form-control\" [(ngModel)]=\"user.name\">\n    </div>\n  "
+        selector: 'user-thumbnail',
+        template: "\n    <div class=\"container\">\n      <div class=\"card\" style=\"width: 20rem;\">\n        <div class=\"card-block\">\n          <h4 class=\"card-title\">{{ user.name }}</h4>\n            <p class=\"card-text\"> {{ user.username }}</p>\n            <a [routerLink]=\"['/users', user.id]\" class=\"btn btn-primary\">See Profile</a>\n        </div>\n      </div>\n    </div>\n  "
     })
-], UserProfileComponent);
-exports.UserProfileComponent = UserProfileComponent;
-//# sourceMappingURL=user-profile.component.js.map
+], UserThumbnailComponent);
+exports.UserThumbnailComponent = UserThumbnailComponent;
+//# sourceMappingURL=user-thumbnail.component.js.map

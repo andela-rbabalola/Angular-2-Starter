@@ -5,27 +5,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var user_service_1 = require("../../shared/user.service");
 var UserDetailsComponent = (function () {
-    function UserDetailsComponent(userService) {
-        this.userService = userService;
+    function UserDetailsComponent() {
     }
-    UserDetailsComponent.prototype.ngOnInit = function () {
-        this.user = this.userService.getUser(1);
-    };
     return UserDetailsComponent;
 }());
 UserDetailsComponent = __decorate([
     core_1.Component({
-        selector: 'user-details',
-        templateUrl: '/app/users/user-details/user-details.component.html'
-    }),
-    __metadata("design:paramtypes", [user_service_1.UserService])
+        template: "\n    <div class=\"jumbotron user-info\">\n      <h1 class=\"display-3\">Hello, world!</h1>\n      <p class=\"lead\">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>\n      <hr class=\"my-4\">\n      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>\n      <p class=\"lead\">\n        <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Learn more</a>\n      </p>\n    </div>\n  ",
+        styles: ["\n    .user-info { margin-top: 20px; }\n    .\n  "]
+    })
 ], UserDetailsComponent);
 exports.UserDetailsComponent = UserDetailsComponent;
 //# sourceMappingURL=user-details.component.js.map

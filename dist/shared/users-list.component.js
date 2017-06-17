@@ -10,21 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var user_1 = require("../shared/models/user");
-var UserProfileComponent = (function () {
-    function UserProfileComponent() {
+var user_service_1 = require("./user.service");
+var UsersListComponent = (function () {
+    function UsersListComponent(userService) {
+        this.userService = userService;
     }
-    return UserProfileComponent;
+    UsersListComponent.prototype.ngOnInit = function () {
+        this.users = this.userService.getUsers();
+        console.log(this.users);
+    };
+    return UsersListComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", user_1.User)
-], UserProfileComponent.prototype, "user", void 0);
-UserProfileComponent = __decorate([
+UsersListComponent = __decorate([
     core_1.Component({
-        selector: 'user-profile',
-        template: "\n    <div class=\"jumbotron\" *ngIf=\"user\">\n      <h2> {{user.name}} <small> {{ user.username }} </small></h2>\n      <input class=\"form-control\" [(ngModel)]=\"user.name\">\n    </div>\n  "
-    })
-], UserProfileComponent);
-exports.UserProfileComponent = UserProfileComponent;
-//# sourceMappingURL=user-profile.component.js.map
+        template: "\n    <div>\n    <h1>Here are all Users</h1>\n    <hr/>\n    <div class=\"row\">\n      <div *ngFor=\"let user of users\" class=\"col-md-5\">\n        <user-thumbnail [user]=\"user\"></user-thumbnail>\n      </div>\n    </div>\n  </div>\n  ",
+        styles: ["\n    h1 { margin-top: 30px; }\n  "]
+    }),
+    __metadata("design:paramtypes", [user_service_1.UserService])
+], UsersListComponent);
+exports.UsersListComponent = UsersListComponent;
+//# sourceMappingURL=users-list.component.js.map
